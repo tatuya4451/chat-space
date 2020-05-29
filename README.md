@@ -14,6 +14,7 @@ Things you may want to cover:
 * Database creation
 
 read
+test
 
 * Database initialization
 
