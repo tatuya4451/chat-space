@@ -17,13 +17,14 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |nickname|string|null: false|
 ### Association
 - has_many :messages
 - has_many :groups, through: :users_groups  
+- has_many :users_groups
 
 
 ## messagesテーブル
@@ -35,17 +36,21 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :groups, through: :messages_groups
-
+- belongs_to :group
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key:true|
-|user_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
+|name|||
+
+## add_index
+|Column|Type|Options|
+|------|----|-------|
+|user_id||integer|      #add_indexについて記載しました
+
 ### Association
 - has_many :users, through: :users_groups
-- has_many :messages, through: :messages_groups
+- has_many :messages
+- has_many :users_groups
 
 
 ## users_groupsテーブル
@@ -56,14 +61,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :group
-## messages_groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|message_id|integer|null: false, foreign_key:true| 
-|group|id|integer|null: false, foreign_key:true|
-### Association
-- belongs_to :message
-- belongs_to :group
+
 
 * Database initialization
 
