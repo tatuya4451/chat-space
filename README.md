@@ -17,7 +17,6 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |nickname|string|null: false|
@@ -25,6 +24,7 @@ Things you may want to cover:
 - has_many :messages
 - has_many :groups, through: :users_groups  
 - has_many :users_groups
+
 
 
 ## messagesテーブル
@@ -49,7 +49,6 @@ add_index :groups, :name, unique: true
 - has_many :messages
 - has_many :users_groups
 
-
 ## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -58,6 +57,7 @@ add_index :groups, :name, unique: true
 ### Association
 - belongs_to :user
 - belongs_to :group
+
 
 
 * Database initialization
