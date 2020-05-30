@@ -42,7 +42,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 
-add_index :groups, :name
+add_index :groups, :name, unique: true
 
 ### Association
 - has_many :users, through: :users_groups
