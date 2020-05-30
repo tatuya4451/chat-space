@@ -13,8 +13,57 @@ Things you may want to cover:
 
 * Database creation
 
-read
-test11
+# chat-space DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|nickname|string|null: false|
+### Association
+- has_many :messages
+- has_many :groups, through: :users_groups  
+
+
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text||
+|image|string||
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- has_many :groups, through: :messages_groups
+
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_id|integer|null: false, foreign_key:true|
+|user_id|integer|null: false, foreign_key: true|
+|message_id|integer|null: false, foreign_key: true|
+### Association
+- has_many :users, through: :users_groups
+- has_many :messages, through: :messages_groups
+
+
+## users_groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key:true| 
+|group|id|integer|null: false, foreign_key:true|
+### Association
+- belongs_to :user
+- belongs_to :group
+## messages_groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|message_id|integer|null: false, foreign_key:true| 
+|group|id|integer|null: false, foreign_key:true|
+### Association
+- belongs_to :message
+- belongs_to :group
 
 * Database initialization
 
