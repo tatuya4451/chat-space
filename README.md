@@ -40,12 +40,9 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|||
+|name|string|null: false|
 
-## add_index
-|Column|Type|Options|
-|------|----|-------|
-|user_id||integer|      #add_indexについて記載しました
+add_index :groups, :name
 
 ### Association
 - has_many :users, through: :users_groups
