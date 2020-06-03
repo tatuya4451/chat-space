@@ -1,0 +1,20 @@
+.chat-box
+  .chat-box__top
+    .chat-name
+      = message.user.name
+    .chat-date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .chat-box__message
+    - if message.content.present?
+      %p._message__content
+        = message.content
+    = image_tag message.image.url, class: 'message__image' if message.image.present?
+
+
+-#  .chat-box
+-#       .chat-box__top
+-#         .chat-name 
+-#           masa
+-#         .chat-date 2019/11/20(Wed) 17:43:01
+-#       .chat-box__message おはよう！
+
