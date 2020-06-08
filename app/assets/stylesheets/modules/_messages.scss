@@ -8,7 +8,7 @@ a{
 
 .wrapper{
   display: flex;
-  // overflow: hidden;
+  // position: fixed;
 }
 .side-bar{
   height: 100vh;
@@ -66,6 +66,7 @@ a{
     justify-content: space-between;
   }
   &__massage-list{
+    overflow: scroll;
     height: calc(100vh - 190px);
     background-color: #fafafa;
   }
