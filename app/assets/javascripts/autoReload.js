@@ -49,13 +49,14 @@ $(function(){
       dataType: 'json',
       data: {id: last_message_id}
     })
-    .done(function(message) {
+    .done(function(messages) {
+      console.log(messages)
       if (messages.length !== 0) {
-        let inserHTML = '';
+        let insertHTML = '';
         $.each(messages, function(i, message) {
-          inserHTML += buildHTML(message)
+          insertHTML += buildHTML(message)
         });
-        $('.chat-main__massage-list').append(inserHTML);
+        $('.chat-main__massage-list').append(insertHTML);
         $('.chat-main__massage-list').animate({ scrollTop: $('.chat-main__massage-list')[0].scrollHeight});
       }
     })
