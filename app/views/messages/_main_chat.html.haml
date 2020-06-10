@@ -4,6 +4,7 @@
       .group-title
         = @group.name
       .group-member
+        Member:
         - @group.users.each do |user|
           = user.name
         -# - group.group_user.user
