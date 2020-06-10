@@ -104,14 +104,14 @@ a{
 }
 .chat-box{
   margin-left: 40px;
-  margin-bottom:46px ;
+  
 &__top{
   display: flex;
   padding-top: 35px;
 }
 &__message{
   padding-top: 12px;
-  padding-bottom: 46px;
+  // padding-bottom: 46px;
   font-size: 14px;
   color: #434A54;
 }
@@ -162,6 +162,9 @@ a{
   border: none;
   color: #ffffff;
   margin-right: 40px;
+}
+._message__content{
+  padding-bottom: 46px;
 }
 
   
